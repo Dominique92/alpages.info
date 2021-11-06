@@ -1,0 +1,11 @@
+services:
+    Dominique92.GeoBB.listener:
+        class: Dominique92\GeoBB\event\listener
+        arguments:
+            - @dbal.conn
+            - @request
+            - @template
+            - @user
+            - @auth
+        tags:
+            - { name: event.listener }

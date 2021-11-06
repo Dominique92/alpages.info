@@ -1,0 +1,166 @@
+<!-- IF 0 -->Diaporamas<!-- ENDIF -->
+<!-- IF BODY_CLASS == 'diapo' -->
+<!-- IF 0 -->//TODO add défilement automatique<!-- ENDIF -->
+<!-- IF 0 -->//TODO add post_text & comments<!-- ENDIF -->
+<!-- IF 0 -->//TODO BUG n'efface pas l'image en dessous quand elle dépasse<!-- ENDIF -->
+
+<script>
+	var imgs,
+		slideshowEl,
+		slidesEl,
+		slides = [],
+		slideNumber = 0;
+
+	window.addEventListener('load', function() {
+		slideshowEl = document.getElementById('slideshow');
+		slidesEl = document.getElementById('slides');
+
+		imgs = document.getElementsByTagName('img');
+		for (let i = 0; i < imgs.length; i++) {
+			imgs[i].onclick = null;
+			slides.push(imgs[i]);
+		}
+
+		skip(0); // Init the display with the 1st diapo
+	});
+
+	function skip(delta) {
+		document.body.appendChild(slidesEl.firstChild); // Unlist the previous slide
+		slidesEl.appendChild(slides[slideNumber += delta]); // Add the next slide
+		slideshowEl.className =
+			slideNumber == 0 ? 'first-slide' :
+			slideNumber == imgs.length - 1 ? 'last-slide' :
+			'slide';
+	};
+
+	function fullScreen() {
+		if (slideshowEl.mozRequestFullScreenWithKeys)
+			slideshowEl.mozRequestFullScreenWithKeys();
+		else if (slideshowEl.webkitRequestFullscreen)
+			slideshowEl.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+		else if (slideshowEl.requestFullscreen)
+			slideshowEl.requestFullscreen();
+		else if (slideshowEl.msRequestFullscreen)
+			slideshowEl.msRequestFullscreen();
+		else if (slideshowEl.mozRequestFullScreen)
+			slideshowEl.mozRequestFullScreen();
+	}
+</script>
+
+<style>
+	html, body {
+		height: 100%;
+		overflow: hidden;
+	}
+	#slideshow { /* Diaporama container */
+		position: absolute;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		background: black;
+		z-index: 1000;
+	}
+	#slideshow img {
+		max-width: 100%;
+		max-height: 100%;
+		position:absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	@keyframes appear {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+	#slideshow img:last-child {
+		opacity: 1;
+		animation: appear 1s ease-in-out;
+	}
+
+	/* Prev/next buttons */
+	#prev,
+	#next {
+		position: absolute;
+		top: 50%;
+		background: rgba(0,0,0,0.3);
+		font-size: 5vw;
+		font-weight: bold;
+		color: yellow;
+		cursor: pointer;
+		text-decoration: none;
+		z-index: 1000;
+	}
+	.no-slide #next,
+	.no-slide #prev,
+	.first-slide #prev,
+	.last-slide #next {
+		display: none;
+	}
+	#next {
+		right: 0;
+	}
+
+	/* Full screen button */
+	.home,
+	.tci,
+	.fsc {
+		position: absolute;
+		top: 0;
+		right: 0;
+		font-size: 3vw;
+		font-weight: bold;
+		color: yellow;
+		text-decoration: none;
+		cursor: pointer;
+		z-index: 1000;
+	}
+	.home {
+		top: 0.3vw;
+		left: 0;
+	}
+	.tci {
+		top: 0.3vw;
+		right: 0;
+		left: 0;
+	}
+	.home:hover,
+	.tci:hover,
+	.fsc:hover {
+		color: yellow;
+		text-decoration: none;
+	}
+	.fsc2 {
+		top: 0.3vw;
+		right: 0.3vw;
+	}
+	:fullscreen .fsc {
+		display: none;
+	}
+	:-moz-full-screen .fsc {
+		display: none;
+	}
+	:-webkit-full-screen .fsc {
+		display: none;
+	}
+	:-ms-fullscreen .fsc { /* IE */
+		display: none;
+	}
+</style>
+
+<div id="slideshow" class="no-slide">
+	<div id="slides">
+		<div></div>
+		<div></div>
+	</div>
+	<a id="prev" title="Pécédent" onclick="skip(-1)">&nbsp;<&nbsp;</a>
+	<a id="next" title="Suivant" onclick="skip(1)">&nbsp;>&nbsp;</a>
+	<a class="home" title="Retour" onclick="window.history.back()">&nbsp;&lArr;&nbsp;</a>
+	<a class="fsc">&nbsp;&neArr;&nbsp;</a>
+	<a class="fsc fsc2" title="Plein écran" onclick="fullScreen()">&nbsp;&swArr;&nbsp;</a>
+</div>
+
+<!-- ENDIF -->

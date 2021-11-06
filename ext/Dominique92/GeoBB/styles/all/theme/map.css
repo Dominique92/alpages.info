@@ -1,0 +1,57 @@
+/* Card's encapsulation */
+/*//TODO BUG IE la frame est à gauche de la carte en IE */
+#map-frame {
+	float: right;
+	background: white;
+}
+/* Overlay selector, underneath the card */
+#map-frame ul {
+    list-style-type: none;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+/* Map area managed by Openlayers */
+#map {
+	float: right;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	width: 66vw;
+	height: 66vw;
+	background-image: linear-gradient(#9AB4CB, #9BCB9A);
+}
+
+/* Responsive map for mobiles */
+@media screen and (max-width: 700px) {
+	#map-frame {
+		float: none;
+		border-left: none;
+	}
+	#map {
+		float: none;
+		width: 100%;
+		margin: 0;
+	}
+}
+
+/* News */
+.section-index li.header dt {
+	font-size: 130%;
+	color: #4C5D77;
+}
+/* Avoid only 1 news line at the left of the map */
+#news .row:after {
+	content: none;
+}
+
+/* viewtopic.php */
+.topic-edit-button {
+	margin: 5px 0 20px 0;
+}
+
+/* posting.php */
+/* //TODO BEST implémenter un blocage de l'envoi par javascript */
+.section-posting #attach-panel-multi::after {
+	content: "Attendre la fin du chargement des fichiers pour enregistrer le sujet.";
+	background: yellow;
+}

@@ -1,0 +1,32 @@
+<table class="etiquette">
+	<tr>
+		<td class="hg"></td>
+		<td class="hm"></td>
+		<td class="hd"></td>
+	</tr><tr>
+		<td class="mg"></td>
+		<td class="mm">
+			<h1>
+				{TOPIC_TITLE}
+				<!-- IF FORUM_IMAGE -->
+					<img src="{FORUM_IMAGE}" title="{FORUM_NAME}"/>
+				<!-- ENDIF -->
+				<span>(<a href="viewforum.php?f={FORUM_ID}" title="Voir les autres {FORUM_NAME}s">{FORUM_NAME}</a>)</span>
+			</h1>
+			<h3>
+				Longitude <span id="marqueur-lon"></span>, Latitude <span id="marqueur-lat"></span>
+				<div id="marqueur-xy">(CH1903) X <span id="marqueur-x"></span>, Y <span id="marqueur-y"></span></div>
+			</h3>
+			<!-- BEGIN info -->
+				<!-- IF info.DISPLAY_VALUE -->
+					<h3>{info.INNER}: {info.DISPLAY_VALUE} {info.POSTAMBULE}</h3>
+				<!-- ENDIF -->
+			<!-- END info -->
+		</td>
+		<td class="md"></td>
+	</tr><tr>
+		<td class="bg"></td>
+		<td class="bm"></td>
+		<td class="bd"></td>
+	</tr>
+</table>

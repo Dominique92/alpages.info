@@ -1,0 +1,17 @@
+<p>
+	Lon <input id="editable-lon" type="text" onchange="editable.edit(this,0,4326)" size="10" maxlength="12"/>
+	Lat <input id="editable-lat" type="text" onchange="editable.edit(this,1,4326)" size="10" maxlength="12"/>
+</p>
+<!-- IF EPSG21781 -->
+	<p id="editable-xy">Suisse
+		X <input id="editable-x" type="text" onchange="editable.edit(this,0,21781)" size="7" maxlength="12"/>
+		Y <input id="editable-y" type="text" onchange="editable.edit(this,1,21781)" size="7" maxlength="12"/>
+	</p>
+<!-- ENDIF -->
+
+<p><a style="cursor:pointer" onclick="map.getView().setCenter(editable.getPoint().getCoordinates())">Recentrer la carte sur le curseur</a></p>
+<p><a style="cursor:pointer" onclick="editable.getPoint().setCoordinates(map.getView().getCenter())">Remettre le curseur au centre actuel de la carte</a></p>
+
+<!-- //TODO suivant dispo GPS
+<p><a style="cursor:pointer" onclick="geobbControlGps.action()">Utiliser la position du GPS</a></p>
+-->

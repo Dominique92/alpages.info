@@ -1,0 +1,96 @@
+/* MASQUAGES */
+.stat-block, /* Qui est en ligne... */
+.footer-row , /* Lignes copyright en bas */
+.birthday-list,
+.section-viewtopic .bar-top,
+
+.section-posting input[name="save"],
+.section-posting input[name="preview"],
+.section-posting #options-panel-tab, .section-posting #options-panel, /* Options d'édition */
+.section-posting #poll-panel-tab { /* Sondages */
+	display: none !important;
+}
+.section-posting #attach-panel { /* Onglet de chargement de fichier */
+	display: block !important;
+}
+
+input[type="number"] {
+	width: 60px !important;
+	text-align: right;
+}
+
+.section-posting .remarques {
+	margin-top: 1em;
+	margin-bottom: 0;
+}
+.section-posting .format-buttons {
+	margin: 0;
+}
+.wrap {
+	max-width: none;
+	min-width: none;
+}
+
+/* ALL */
+.site_logo {
+	background-image: url("//aspir.eu/wp-content/uploads/2016/09/jhu-e1464350442860-75x75.jpg");
+	background-repeat: no-repeat;
+	height: 75px;
+}
+
+/* INDEX.PHP */
+.overpass .zoom-out,
+.overpass-zoom-out li {
+	display: none;
+}
+.overpass-zoom-out .titre,
+.overpass-zoom-out .zoom-out {
+	display: list-item;
+}
+
+.geo_presentation {
+	font-size: 1.2em;
+	margin-bottom: 10px;
+}
+
+/* VIEWTOPIC.PHP */
+.specific-fields p {
+	margin: 0;
+}
+.specific-fields h4 {
+	margin-top: 5px !important;
+}
+.specific-fields pre {
+	display: inline;
+	font-size: 1.1em;
+}
+.specific-fields a {
+	display: inline;
+	white-space: pre-wrap;
+}
+
+/* POSTING.PHP */
+.section-posting #map-frame {
+	float: none;
+}
+.section-posting #postingbox fieldset.fields1 dt {
+	width: auto;
+}
+.section-posting #postingbox fieldset.fields1 dd {
+	margin-left: auto !important;
+}
+.section-posting .panel {
+	margin-bottom: 0px;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	font-size: 10px;
+	color: #36f !important;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	font-size: 10px;
+	color: #36f !important;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+	font-size: 10px;
+	color: #36f !important;
+}

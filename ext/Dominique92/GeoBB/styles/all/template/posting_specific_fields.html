@@ -1,0 +1,35 @@
+<!-- BEGIN specific_fields -->
+	<!-- IF specific_fields.COMMENT != 'automatique' -->
+		<{specific_fields.FIELD_TAG}>
+			{specific_fields.FIELD_TITLE}
+			<!-- IF specific_fields.TAG == 'textarea' -->
+				<textarea cols="60" class="inputbox autowidth"
+					{specific_fields.ATT_NAME}
+					{specific_fields.ATT_PLACEHOLDER}
+				>{specific_fields.INNER}</textarea>
+			<!-- ELSEIF specific_fields.TAG -->
+				<{specific_fields.TAG}
+					{specific_fields.ATT_TYPE} {specific_fields.ATT_NAME}
+					{specific_fields.ATT_SIZE} {specific_fields.ATT_CLASS}
+					{specific_fields.ATT_PLACEHOLDER} {specific_fields.ATT_VALUE}
+				>
+					{specific_fields.INNER}
+				</{specific_fields.TAG}>
+			<!-- ENDIF -->
+			{specific_fields.POSTAMBULE}
+			{specific_fields.COMMENT}
+		</{specific_fields.FIELD_TAG}>
+	<!-- ENDIF -->
+
+	<!-- BEGIN attachments -->
+		<p>Modifier :
+			<a href="posting.php?mode=edit&f={attachments.FORUM_ID}&p={attachments.POST_ID}" target="_BLANK">
+				{attachments.POST_SUBJECT}
+			</a>
+		</p>
+	<!-- END attachments -->
+<!-- END specific_fields -->
+
+<p style="clear:both">
+	<b>Autres remarques ou commentaires:</b>
+</p>

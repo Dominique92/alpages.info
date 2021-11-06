@@ -1,0 +1,23 @@
+<!-- INCLUDE map.html -->
+
+<div id="map-frame">
+	<div id="map"></div>
+	<!-- EVENT map_selector -->
+</div>
+
+<div class="geo_presentation">{GEO_PRESENTATION}</div>
+<!-- INCLUDE index_news.html -->
+
+<script>
+	window.addEventListener('load', function() {
+		new ol.MyMap({
+			target: 'map',
+			layers: geoOverlays({
+				index: true
+			}),
+			controls: geoControls({
+				geoKeys: {GEO_KEYS}
+			})
+		});
+	});
+</script>

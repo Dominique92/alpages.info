@@ -1,0 +1,52 @@
+<!-- IF GEO_MAP_TYPE -->
+<!-- INCLUDE map.html -->
+
+<div id="map-frame">
+	<div id="map"></div>
+	<!-- EVENT map_selector -->
+</div>
+<p id="marqueur-json" style="display:none">{GEOJSON}</p>
+
+<!-- EVENT viewtopic_map_after -->
+
+<script>
+	window.addEventListener('load', function() {
+		var eljson = document.getElementById('marqueur-json'),
+			map = new ol.MyMap({
+				target: 'map',
+				layers: geoOverlays({
+					view: true,
+					topidIdSelect: {TOPIC_ID}
+				}),
+				controls: geoControls({
+					geoKeys: {GEO_KEYS},
+					controlPermalink: {
+						init: eljson.innerHTML.search(/[0-9]/) == -1 // If a valid coordinate is specified
+					}
+				})
+			});
+
+		<!-- IF GEO_MAP_TYPE == 'Point' -->
+			var marqueur = marker('{EXT_DIR}images/cadre.png', 'marqueur'),
+				pos = marqueur.getPoint().getCoordinates();
+			map.addLayer(marqueur);
+
+			// Center the map
+			map.getView().setCenter(pos);
+			map.getView().setZoom(15);
+
+		<!-- ELSEIF GEOJSON --> // line / surface
+			var format = new ol.format.GeoJSON({
+					featureProjection: "EPSG:3857"
+				}),
+				source = new ol.source.Vector({
+					features: format.readFeatures(eljson.innerHTML.replace(':]',':[]')) //TODO hack for O2switch sql bug / still here ?
+				});
+
+			// Center the map
+			if (!ol.extent.isEmpty(source.getExtent()))
+				map.getView().fit(source.getExtent());
+		<!-- ENDIF -->
+	});
+</script>
+<!-- ENDIF -->

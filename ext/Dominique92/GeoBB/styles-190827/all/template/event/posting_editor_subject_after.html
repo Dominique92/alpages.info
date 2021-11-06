@@ -1,0 +1,98 @@
+<!-- IF GEO_MAP_TYPE and POST_ID == TOPIC_FIRST_POST_ID -->
+<!-- INCLUDE map.html -->
+
+<div id="map-frame">
+	<div id="map"></div>
+	<!-- EVENT map_selector -->
+</div>
+<input id="editable-json" name="geom" type="{GEOJSON_TYPE}" value='{GEOJSON}' />
+
+<dl class="posting-point">
+	<!-- IF GEO_MAP_TYPE == 'Point' -->
+		<p>Déplacez le curseur pour modifier le position du point</p>
+		<p>Editez "Lon" ou "Lat" pour modifier le position du point</p>
+		<!-- INCLUDE posting_point_position.html -->
+	<!-- ENDIF -->
+
+	<!-- IF GEO_MAP_TYPE == 'LineString' -->
+		<!-- IF 0 -->//TODO explications sur la page<!-- ENDIF -->
+	<!-- ENDIF -->
+	
+	<!-- IF GEO_MAP_TYPE == 'Polygon' -->
+		<h3>Création polygone</h3>
+		<p>- Activer "P" puis cliquer sur la carte et sur chaque point du tracé pour dessiner un polygone.
+		Double cliquer pour terminer.<br/>
+		- Si le nouveau polygone est entièrement compris dans un autre, il crée un "trou".</p>
+		<h3>Modification polygone</h3>
+		<p>- Cliquer et déplacer un sommet pour modifier un polygone.<br/>
+		- Alt+cliquer sur un sommet pour le supprimer.<br/>
+		- Cliquer sur un segment puis déplacer pour créer un sommet.</p>
+		<h3>Suppression polygone</h3>
+		<p>- Ctrl+Alt+cliquer sur un segment d'un polygone pour supprimer ce polygone.</p>
+	<!-- ENDIF -->
+</dl>
+<hr style="clear:all" />
+
+<!-- INCLUDE posting_specific_fields.html -->
+
+<script>
+	var map, editable, permaCenter;
+	window.addEventListener('load', function() {
+		var eljson = document.getElementById('editable-json'),
+			overlays = geoOverlays({
+				posting: true,
+				<!-- IF TOPIC_ID -->
+					topidIdExclude: {TOPIC_ID},
+				<!-- ENDIF -->
+				<!-- IF GEO_MAP_TYPE == 'Polygon' -->
+					transparency: [0, 1, 2],
+				<!-- ENDIF -->
+				noLabel: true
+			});
+
+		map = new ol.MyMap({
+			target: 'map',
+			layers: overlays,
+			controls: geoControls({
+				geoKeys: {GEO_KEYS},
+				controlPermalink: {
+					visible: false,
+					init: eljson.value.search(/[0-9]/) == -1, // If a valid coordinate is specified
+					initialCenter: function(c) {
+						permaCenter = c;
+					}
+				}
+				
+			})
+		});
+
+		<!-- IF GEO_MAP_TYPE == 'Point' -->
+			editable = marker('{EXT_DIR}images/viseur.png', 'editable', permaCenter, true);
+			map.addLayer(editable);
+			map.getView().fit(editable.getSource().getExtent());
+			map.getView().setZoom(15);
+
+		<!-- ELSE --> // LineString / Polygon
+			eljson.value = eljson.value.replace(':]',':[]'); //TODO hack for bug in O2switch sql MariaDB / still here ?
+			var edit = controlEdit({
+				inputId: 'editable-json',
+				snapLayers: overlays,
+				styleOptions: topicStyleOptions,
+				editStyleOptions: editStyleOptions,
+				enableAtInit: true,
+				title: titleEdit,
+				draw: [{
+					type: '{GEO_MAP_TYPE}'
+				}]
+			})
+			map.addControl(edit);
+
+			// Center the map
+			if (!ol.extent.isEmpty(edit.source_.getExtent()))
+				map.getView().fit(
+					edit.source_.getExtent());
+		<!-- ENDIF -->
+	});
+</script>
+
+<!-- ENDIF -->

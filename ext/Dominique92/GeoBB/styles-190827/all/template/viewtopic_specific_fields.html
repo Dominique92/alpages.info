@@ -1,0 +1,20 @@
+<div class="specific-fields">
+<!-- BEGIN specific_fields -->
+	<!-- IF (specific_fields.BLOCK_HAVING_VALUE or specific_fields.VALUE) and specific_fields.COMMENT != 'confidentiel' -->
+		<{specific_fields.FIELD_TAG}>
+			{specific_fields.FIELD_TITLE}:
+			{specific_fields.VALUE}
+			{specific_fields.POSTAMBULE}
+		</{specific_fields.FIELD_TAG}>
+	<!-- ENDIF -->
+
+	<!-- BEGIN attachments -->
+		<p><b><pre><a href="viewtopic.php?t={attachments.TOPIC_ID}" title="voir la fiche">{attachments.POST_SUBJECT}</a></pre></b></p>
+		<!-- BEGIN detail -->
+			<!-- IF detail.VALUE -->
+				&nbsp; &nbsp; &nbsp; {detail.FIELD_TITLE} : {detail.VALUE} {detail.POSTAMBULE}<br/>
+			<!-- ENDIF -->
+		<!-- END detail -->
+	<!-- END attachments -->
+<!-- END specific_fields -->
+</div>

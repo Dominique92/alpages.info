@@ -1,0 +1,44 @@
+<ul id="news" class=" topiclist">
+	<li class="header">
+		<dl><dt>{L_FEED_NEWS}{L_COLON}</dt></dl>
+	</li>
+
+	<!-- BEGIN news -->
+		<li class="row bg1 ">
+			<dl><dt class="rowbg">
+				<!-- IF news.POST_ID == news.TOPIC_FIRST_POST_ID -->
+					<!-- IF news.POST_EDIT_TIME -->
+						{L_MODIFICATION}
+					<!-- ELSE -->
+						{L_CREATION}
+					<!-- ENDIF -->
+				<!-- ELSE -->
+					{L_COMMENT}
+				<!-- ENDIF -->
+				<!-- IF news.FORUM_IMAGE -->
+					<a href="viewforum.php?f={news.FORUM_ID}" title="{news.FORUM_NAME}"><img src="{news.FORUM_IMAGE}" /></a>
+				<!-- ENDIF -->
+				<a class="topictitle" href="viewtopic.php?t={news.TOPIC_ID}#p{news.POST_ID}" title="{L_VIEW_LATEST_POST}">{news.TOPIC_TITLE}</a>
+				<!-- IF not news.FORUM_IMAGE -->
+					dans <a class="topictitle" href="viewforum.php?f={news.FORUM_ID}" title="{L_FORUM_INDEX}">{news.FORUM_NAME}</a>
+				<!-- ENDIF -->
+				<span>
+					{L_POST_BY_AUTHOR}
+					<a class="username-coloured"
+						href="memberlist.php?mode=viewprofile&amp;u={news.POSTER_ID}"
+						title="{L_VIEWING_MEMBER_PROFILE}">
+						{news.USERNAME}
+					</a>
+					{L_POSTED_ON_DATE} {news.POST_OR_EDIT_TIME}
+				</span>
+			</dt></dl>
+		</li>
+	<!-- BEGINELSE -->
+		<li class="panel">{L_NO_TOPICS_TIME_FRAME}</li>
+	<!-- END news -->
+</ul>
+<!-- IF .news -->
+	<div id="more-news" class="action-bar" style="margin: 0 0 15px 15px">
+			<a href="?news={PLUS_NOUVELLES}">Plus de news...</a> 
+	</div>
+<!-- ENDIF -->

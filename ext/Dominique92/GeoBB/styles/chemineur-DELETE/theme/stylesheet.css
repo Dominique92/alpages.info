@@ -1,0 +1,482 @@
+/* MASQUAGES */
+.nav-main li:nth-child(2), /* Navbar FAQ  */
+.site_logo,
+.nav-main .quick-links,
+.nav-main .fa-cogs,
+.nav-main .fa-gavel,
+.nav-breadcrumbs,
+.section-index .action-bar.compact,
+.page-body > p, /* Dates & visite */
+.stat-block, /* Qui est en ligne... */
+.footer-row, /* Lignes copyright en bas */
+z.birthday-list,
+z.section-viewforum .bar-top,
+.section-viewtopic.point .bar-top,
+.section-viewtopic.point .actions-jump,
+.section-viewtopic.point .post, /* Masque les formats habituels de post en format fiches */
+DELETE.section-viewtopic .form-post, /* Masque le format fiche de posts normaux */
+z.section-posting input[name="save"],
+z.section-posting input[name="preview"], /*//TODO revoir effet de save et preview sur la saisie d'un point / trace */
+.section-posting #options-panel-tab, .section-posting #options-panel, /* Options d'édition */
+.section-posting #poll-panel-tab { /* Sondages */
+	display: none !important;
+}
+DELETE.section-viewtopic.point .form-post, /* Masque le format fiche de posts normaux */
+.section-posting #attach-panel { /* Onglet de chargement de fichier */
+	display: block !important;
+}
+
+#page-header .navbar {
+	position: relative;
+	top: -12px;
+	padding: 0;
+	background-color: transparent;
+}
+.nav-main {
+	padding: 0 !important;
+}
+.nav-main > li {
+	border: 3px outset #dc0 !important;
+	margin: 0 !important;
+	padding: 0 10px 2px 5px;
+	background-color: #fe0 !important;
+								wwwfloat: right !important;
+}
+
+z input[type="number"] {
+	width: 60px !important;
+	text-align: right;
+}
+
+z.section-posting .remarques {
+	margin-top: 1em;
+	margin-bottom: 0;
+}
+z.section-posting .format-buttons {
+	margin: 0;
+}
+body,
+.wrap {
+	max-width: none;
+	min-width: none;
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+
+/* ALL */
+/* Bandeau */
+.headerbar {
+	height: 60px;
+	margin: 0 !important;
+	border-radius: 0;
+	padding: 0;
+	background-image: url("images/banniere.jpg");
+}
+.logo,
+#search-box {
+	position: absolute;
+	top: -24px;
+	right: 10px;
+}
+#site-description-geobb {
+	float: none;
+	width: auto;
+	padding-top: 5px;
+	text-align: center;
+	color: yellow;
+}
+#site-description-geobb h1 {
+	font-size: 3em;
+	display: inline;
+	color: yellow;
+}
+#site-description-geobb p {
+	display: none;
+}
+.search-header {
+	margin-top: 37px;
+}
+.copyright {
+	background: white;
+}
+
+/* INDEX.PHP */
+.section-index > div {
+	background: url('images/coin_ciel.jpg'); 
+	background-repeat: no-repeat ;
+	background-color: #5072BF !important;
+}
+#map-frame {
+	margin: 6px 10px 0 5px;
+}
+#map {
+	margin: 0 !important;
+}
+#map-selector {
+	background-color: #EEF5F9 !important;
+}
+#map-selector ul {
+	float: left;
+	margin: 3px;
+}
+#map-selector p {
+	font-weight: bold;
+	margin-bottom: 4px;
+}
+
+z.username-coloured {
+    text-transform: capitalize;
+}
+/* News */
+#news .bg1 {
+	clear: none;
+	background-color: transparent;
+	background-image: none;
+}
+#news li.row {
+	border: none;
+}
+#news li.header dt {
+	text-transform: capitalize;
+	color: yellow;
+	text-indent: 5px;
+	font-size: 2em;
+	font-weight: bold;
+	text-decoration: underline;
+	margin-bottom: 5px;
+}
+#news dt {
+	font-size: 1.6em;
+	font-family: Times New Roman;
+	margin: 0 5px;
+	color: white;
+}
+#news li {
+	color: white;
+	text-indent: 5px;
+}
+#news a {
+	font-family: Arial;
+	font-size: 1em;
+	color: yellow;
+}
+#more-news a {
+	color: yellow !important;
+}
+
+z.overpass .zoom-out,
+z.overpass-zoom-out li {
+	display: none;
+}
+z.overpass-zoom-out .titre,
+z.overpass-zoom-out .zoom-out {
+	display: list-item;
+}
+
+z.geo_presentation {
+	font-size: 1.2em;
+	margin-bottom: 10px;
+}
+
+
+/* VIEWTOPIC.PHP */
+.section-viewtopic .pagination {
+	padding: 4px;
+	border: 1px solid white;
+	border-radius: 4px;
+	background: #eee;
+}
+
+/* Points */
+.section-viewtopic.point #wrap {
+	background: url('images/pierre.jpg'); 
+}
+.section-viewtopic.point .topic-title {
+	display: none;
+}
+.section-viewtopic.point .post {
+	display: none;
+}
+.section-viewtopic .post-buttons {
+	min-width: 120px;
+}
+/* Bas de page */
+.section-viewtopic .page-footer .navbar {
+	background: white;
+	border-radius: 0;
+}
+
+/* Cadres d'affichage */
+.section-viewtopic.point .etiquette {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-spacing: 0;
+}
+@media screen and (max-width: 600px) {
+	.section-viewtopic.point .etiquette {
+		width: 100%;
+		top: 0;
+	}
+}
+
+.section-viewtopic.point .etiquette td {
+	padding: 0;
+}
+.section-viewtopic.point .etiquette .hg, .section-viewtopic.point .etiquette .hd, .section-viewtopic.point .etiquette .bg, .section-viewtopic.point .etiquette .bd {
+	height: 36px;
+	min-width: 36px;
+	background: url('images/etiquette_bg.png');
+}
+.section-viewtopic.point .etiquette .hm, .section-viewtopic.point .etiquette .bm {
+	background: url('images/etiquette_v.png');
+	text-align: right;
+}
+.section-viewtopic.point .etiquette .md {
+	vertical-align: bottom;
+}
+.section-viewtopic.point .etiquette .md img {
+	position: relative; right: -27px; bottom: -5px;
+}
+.section-viewtopic.point .etiquette .mg, .section-viewtopic.point .etiquette .md {
+	background: url('images/etiquette_h.png');
+}
+.section-viewtopic.point .etiquette .hd {
+	background-position: right top;
+}
+.section-viewtopic.point .etiquette .bg {
+	height: 0;
+	background-position: left bottom;
+}
+.section-viewtopic.point .etiquette .bd, .section-viewtopic.point .etiquette .md, .section-viewtopic.point .etiquette .bm {
+	background-position: right bottom;
+}
+.section-viewtopic.point .etiquette .mm {
+	background-color: white;
+}
+.section-viewtopic.point .etiquette h1 {
+	color: #105289;
+	margin-right: 0;
+	margin-top: 0;
+	font-size: 20px;
+}
+.section-viewtopic.point .etiquette h1 span {
+	color: #105289;
+	font-size: 16px;
+}
+.section-viewtopic.point .etiquette h3,
+.section-viewtopic.point .etiquette .action-bar {
+	text-transform: none;
+	padding: 0 2px;
+	font-size: 10px;
+}
+
+/* Liens externes */
+z.geo_ref {
+	margin: 10px auto;
+	background-color: #def;
+	border-radius: 10px;
+	border: 2px solid #468;
+	padding-bottom: 5px;
+}
+
+z.geo_ref dl {
+	text-align: center;
+    text-decoration: underline;
+	padding-bottom: 5px;
+}
+
+z.geo_ref li {
+    list-style-type: circle;
+	margin-left: 20px;
+	height: 28px;
+}
+
+z.geo_ref .button {
+	position: relative;
+	top: 6px;
+}
+
+.form-post {
+	width: 100%;
+}
+.form-post td {
+	vertical-align: middle;
+	padding: 5px;
+}
+.form-post table {
+	margin-left: auto; margin-right: auto;
+}
+
+/* Postits */
+.postit {
+	border-spacing: 0;
+}
+.postit td {
+	padding: 0 !important;
+}
+.postit .hg, .postit .hd, .postit .bg, .postit .bd {
+	height: 2px; min-width: 2px;
+	background: url('images/postit_bg.png');
+}
+.postit .bd {
+	height: 32px; min-width: 32px;
+}
+.postit .md {
+	vertical-align: bottom;
+}
+.postit .md img {
+	position: relative; right: -20px; bottom: -5px;
+}
+.postit .hm, .postit .bm {
+	background: url('images/postit_v.png');
+	text-align: right;
+	font-family: Arial;
+	font-size: 0.8em;
+}
+.postit .mg, .postit .md {
+	background: url('images/postit_h.png');
+}
+.postit .hd {
+	background-position: right top;
+}
+.postit .bg {
+	background-position: left bottom;
+}
+.postit .bd, .postit .md, .postit .bm {
+	background-position: right bottom;
+}
+.postit .mm {
+	background-color: #F3E358;
+}
+.postit .mm p {
+	position: relative; left: 12px; top: 5px;
+	font-family: Arial;
+	font-size: 1em;
+	color: #210;
+	text-indent: 10px;
+	margin-bottom: 0;
+}
+.postit .mm .titre {
+	font-size: 1.3em;
+	font-weight: bold;
+}
+.postit .bm p {
+	font-size: 0.8em;
+	float:right;
+	position: relative; left: 10px;
+}
+
+/* Photos */
+z.photo {
+	border-spacing: 0;
+	margin: 5px 0;
+}
+.photo td {
+	padding: 0 !important;
+}
+.photo .hg, .photo .hd, .photo .bg, .photo .bd {
+	height: 10px; min-width: 10px;
+	background: url('images/photo_bg.png');
+}
+.photo .bd {
+	height: 14px; min-width: 14px;
+}
+.photo .hm, .photo .bm {
+	background: url('images/photo_v.png');
+}
+.photo .bd p {
+	height: 12px;
+	position: relative;
+	top: -12px;
+	left: -10px;
+}
+.photo .md {
+	vertical-align: bottom;
+}
+.photo .md img {
+	position: relative; top: -3px; right: -5px;
+}
+.photo .mm {
+	line-height: 0; /* Sinon, le bord inférieur de la photo à un gap de 2px */
+}
+.photo .mg, .photo .md {
+	background: url('images/photo_h.png');
+}
+.photo .hd {
+	background-position: right top;
+}
+.photo .bg {
+	background-position: left bottom;
+}
+.photo .bd, .photo .md, .photo .bm {
+	background-position: right bottom;
+}
+.photo .hm p, .photo .bm p  {
+	font-family: Verdana;
+	color: #a00;
+	font-size: 0.8em;
+}
+.photo .hm p {
+	font-weight: bold;
+	position: relative; left: -5px;
+	margin: 0;
+}
+.photo .bm p {
+	text-align: right;
+	position: relative; top: -2px; right: 10px;
+	margin: 2px;
+}
+.photo-comment {
+	margin: 10px;
+}
+.photo-comment span {
+	background-color: #fff;
+	padding: 3px;
+}
+
+.headerspace {
+	background-color: #ECF3F7;
+	margin: 5px;
+	padding: 5px;
+}
+.headerspace h3 {
+	margin: 5px;
+}
+
+
+/* POSTING.PHP */
+z.section-posting #postingbox fieldset.fields1 dt {
+	width: auto;
+}
+z.section-posting #postingbox fieldset.fields1 dd {
+	margin-left: auto !important;
+}
+z.section-posting .panel {
+	margin-bottom: 0px;
+}
+
+z.specific-fields {
+	margin-bottom: 20px;
+}
+z.specific-fields p {
+	margin: 0;
+}
+z.specific-fields h4 {
+	margin-top: 5px !important;
+}
+
+z::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	font-size: 10px;
+	color: #36f !important;
+}
+z:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	font-size: 10px;
+	color: #36f !important;
+}
+z::-ms-input-placeholder { /* Microsoft Edge */
+	font-size: 10px;
+	color: #36f !important;
+}

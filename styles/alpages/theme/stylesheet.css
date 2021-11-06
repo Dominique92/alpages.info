@@ -1,0 +1,10 @@
+/*  phpBB3 Style Sheet
+	--------------------------------------------------------------
+	Style name:			alpages
+	Based on style:		prosilver
+	Original author:	Dominique Cavailhez © 2018
+	--------------------------------------------------------------
+*/
+
+@import url("../../prosilver/theme/stylesheet.css");
+@import url("../../../ext/Dominique92/GeoBB/styles/alpages/theme/stylesheet.css");

@@ -1,0 +1,25 @@
+<div class="automatic-document">
+	<!-- BEGIN forum_tree -->
+		<!-- IF forum_tree.TITLE != 'VIDE' -->
+			<h{forum_tree.LEVEL}>
+				{forum_tree.NUM} {forum_tree.TITLE}
+				<!-- IF forum_tree.AUTH and forum_tree.FORUM -->
+					<a href="viewforum.php?f={forum_tree.FORUM_ID}" title="edit"><i class="icon fa-pencil"></i></a>
+				<!-- ENDIF -->
+			</h{forum_tree.LEVEL}>
+		<!-- ENDIF -->
+
+		<!-- IF forum_tree.TEXT -->
+			<p>
+				<a href="posting.php?mode=edit&f={forum_tree.FORUM_ID}&p={forum_tree.POST_ID}" title="edit"><i class="icon fa-pencil"></i></a>
+				{forum_tree.TEXT}
+			</p>
+			<!-- IF forum_tree.NB_COMMENTS -->
+				<a href="viewtopic.php?t={forum_tree.TOPIC_ID}" title="Voir les commentaires">
+					{forum_tree.NB_COMMENTS} commentaire<!-- IF forum_tree.NB_COMMENTS > 1 -->s<!-- ENDIF -->
+				</a>
+			<!-- ENDIF -->
+			<a href="posting.php?mode=reply&f={forum_tree.FORUM_ID}&t={forum_tree.TOPIC_ID}" class="button" title="Entrer un commentaire"><i class="icon fa-comment"></i></i></a>
+		<!-- ENDIF -->
+	<!-- END forum_tree -->
+</div>
